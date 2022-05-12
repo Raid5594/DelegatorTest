@@ -42,8 +42,6 @@ To start the preconfigured `contracts-node`:
 
 1. Select **Local Node**.
 
-    ![Connect to local node](/assets/tutorials/ink-workshop/canvas-connect-to-local.png)
-
 ## Test the upgradable smart contract
 
 If the dev node is running, open a second terminal shell.
