@@ -1,0 +1,179 @@
+{
+    "source": {
+        "hash": "0xd49f68b529fa88209703dc7ada61336901519a9612c12f59e8283ddcd9acfe66",
+        "language": "ink! 3.0.1",
+        "compiler": "rustc 1.62.0-nightly"
+    },
+    "contract": {
+        "name": "delegate_calls",
+        "version": "3.0.1",
+        "authors": ["Parity Technologies <admin@parity.io>"]
+    },
+    "V3": {
+        "spec": {
+            "constructors": [
+                {
+                    "args": [
+                        {
+                            "label": "forward_to",
+                            "type": {
+                                "displayName": ["Hash"],
+                                "type": 0
+                            }
+                        }
+                    ],
+                    "docs": [
+                        "Instantiate this contract with an address of the `logic` contract.",
+                        "",
+                        "Sets the privileged account to the caller. Only this account may",
+                        "later changed the `forward_to` address."
+                    ],
+                    "label": "new",
+                    "payable": false,
+                    "selector": "0x9bae9d5e"
+                }
+            ],
+            "docs": [],
+            "events": [],
+            "messages": [
+                {
+                    "args": [
+                        {
+                            "label": "new_code_hash",
+                            "type": {
+                                "displayName": ["Hash"],
+                                "type": 0
+                            }
+                        }
+                    ],
+                    "docs": [
+                        " Changes the `Hash` of the contract where any call that does",
+                        " not match a selector of this contract is delegated to."
+                    ],
+                    "label": "change_delegate_code",
+                    "mutates": true,
+                    "payable": false,
+                    "returnType": null,
+                    "selector": "0xb71d5c5c"
+                },
+                {
+                    "args": [],
+                    "docs": [
+                        " Fallback message for a contract call that doesn't match any",
+                        " of the other message selectors. Proxy contract delegates the execution",
+                        " of that message to the `forward_to` contract with all input data.",
+                        "",
+                        " # Note:",
+                        "",
+                        " - We allow payable messages here and would forward any optionally supplied",
+                        "   value as well.",
+                        " - If the self receiver were `forward(&mut self)` here, this would not",
+                        "   have any effect whatsoever on the contract we forward to."
+                    ],
+                    "label": "forward",
+                    "mutates": false,
+                    "payable": true,
+                    "returnType": {
+                        "displayName": ["u32"],
+                        "type": 4
+                    },
+                    "selector": "0x45753c2b"
+                }
+            ]
+        },
+        "storage": {
+            "struct": {
+                "fields": [
+                    {
+                        "layout": {
+                            "struct": {
+                                "fields": [
+                                    {
+                                        "layout": {
+                                            "cell": {
+                                                "key": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                                                "ty": 0
+                                            }
+                                        },
+                                        "name": "forward_to"
+                                    },
+                                    {
+                                        "layout": {
+                                            "cell": {
+                                                "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                                                "ty": 3
+                                            }
+                                        },
+                                        "name": "admin"
+                                    }
+                                ]
+                            }
+                        },
+                        "name": "proxy"
+                    }
+                ]
+            }
+        },
+        "types": [
+            {
+                "id": 0,
+                "type": {
+                    "def": {
+                        "composite": {
+                            "fields": [
+                                {
+                                    "type": 1,
+                                    "typeName": "[u8; 32]"
+                                }
+                            ]
+                        }
+                    },
+                    "path": ["ink_env", "types", "Hash"]
+                }
+            },
+            {
+                "id": 1,
+                "type": {
+                    "def": {
+                        "array": {
+                            "len": 32,
+                            "type": 2
+                        }
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "type": {
+                    "def": {
+                        "primitive": "u8"
+                    }
+                }
+            },
+            {
+                "id": 3,
+                "type": {
+                    "def": {
+                        "composite": {
+                            "fields": [
+                                {
+                                    "type": 1,
+                                    "typeName": "[u8; 32]"
+                                }
+                            ]
+                        }
+                    },
+                    "path": ["ink_env", "types", "AccountId"]
+                }
+            },
+            {
+                "id": 4,
+                "type": {
+                    "def": {
+                        "primitive": "u32"
+                    }
+                }
+            }
+        ]
+    }
+}

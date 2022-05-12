@@ -1,0 +1,160 @@
+{
+    "source": {
+        "hash": "0xb36ce21a665f9359eb82872c4ccbb17a85192f68ae776bffebc7ba299f106eb5",
+        "language": "ink! 3.0.1",
+        "compiler": "rustc 1.62.0-nightly"
+    },
+    "contract": {
+        "name": "upgradeable_flipper_v2",
+        "version": "3.0.1",
+        "authors": ["Parity Technologies <admin@parity.io>"]
+    },
+    "V3": {
+        "spec": {
+            "constructors": [
+                {
+                    "args": [
+                        {
+                            "label": "init_value",
+                            "type": {
+                                "displayName": ["bool"],
+                                "type": 0
+                            }
+                        },
+                        {
+                            "label": "init_value_square",
+                            "type": {
+                                "displayName": ["u32"],
+                                "type": 1
+                            }
+                        }
+                    ],
+                    "docs": [
+                        "Creates a new flipper smart contract initialized with the given value."
+                    ],
+                    "label": "new",
+                    "payable": false,
+                    "selector": "0x9bae9d5e"
+                },
+                {
+                    "args": [],
+                    "docs": [
+                        "Creates a new flipper smart contract initialized to `false`."
+                    ],
+                    "label": "default",
+                    "payable": false,
+                    "selector": "0xed4b9d1b"
+                }
+            ],
+            "docs": [],
+            "events": [],
+            "messages": [
+                {
+                    "args": [],
+                    "docs": [
+                        " Flips the current value of the Flipper's boolean."
+                    ],
+                    "label": "flip",
+                    "mutates": true,
+                    "payable": false,
+                    "returnType": null,
+                    "selector": "0x633aa551"
+                },
+                {
+                    "args": [],
+                    "docs": [
+                        " Returns the current value of the Flipper's boolean."
+                    ],
+                    "label": "get",
+                    "mutates": false,
+                    "payable": false,
+                    "returnType": {
+                        "displayName": ["bool"],
+                        "type": 0
+                    },
+                    "selector": "0x2f865bd9"
+                },
+                {
+                    "args": [
+                        {
+                            "label": "new_square",
+                            "type": {
+                                "displayName": ["u32"],
+                                "type": 1
+                            }
+                        }
+                    ],
+                    "docs": [" Update the value to square "],
+                    "label": "set",
+                    "mutates": true,
+                    "payable": false,
+                    "returnType": null,
+                    "selector": "0xe8c45eb6"
+                },
+                {
+                    "args": [],
+                    "docs": [" Square the stored value"],
+                    "label": "square",
+                    "mutates": true,
+                    "payable": false,
+                    "returnType": null,
+                    "selector": "0x0a4257e4"
+                },
+                {
+                    "args": [],
+                    "docs": [" Returns the current squared value."],
+                    "label": "get_square",
+                    "mutates": false,
+                    "payable": false,
+                    "returnType": {
+                        "displayName": ["u32"],
+                        "type": 1
+                    },
+                    "selector": "0x1fe41530"
+                }
+            ]
+        },
+        "storage": {
+            "struct": {
+                "fields": [
+                    {
+                        "layout": {
+                            "cell": {
+                                "key": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                                "ty": 0
+                            }
+                        },
+                        "name": "value"
+                    },
+                    {
+                        "layout": {
+                            "cell": {
+                                "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                                "ty": 1
+                            }
+                        },
+                        "name": "square"
+                    }
+                ]
+            }
+        },
+        "types": [
+            {
+                "id": 0,
+                "type": {
+                    "def": {
+                        "primitive": "bool"
+                    }
+                }
+            },
+            {
+                "id": 1,
+                "type": {
+                    "def": {
+                        "primitive": "u32"
+                    }
+                }
+            }
+        ]
+    }
+}

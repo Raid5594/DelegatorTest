@@ -1,0 +1,27 @@
+{
+    "name": "testupgradablecontract",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "format:check": "prettier --check .",
+        "format:write": "prettier --write .",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "test": "mocha"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@polkadot/api": "^8.3.2",
+        "@polkadot/api-contract": "^8.3.2",
+        "chai": "^4.3.6",
+        "eslint": "^8.15.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-mocha": "^10.0.4",
+        "mocha": "^10.0.0",
+        "prettier": "^2.6.2"
+    },
+    "type": "module"
+}

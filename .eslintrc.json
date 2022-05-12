@@ -1,0 +1,16 @@
+{
+    "root": true,
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "extends": ["plugin:mocha/recommended", "eslint:recommended", "prettier"],
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "plugins": ["mocha"],
+    "rules": {
+        "no-console": "error"
+    }
+}
